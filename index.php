@@ -52,37 +52,38 @@
 <body>
     <h1>I nostri Hotel</h1>
 <table class="table">
-   <?php
-
+    <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">description</th>
+      <th scope="col">parking</th>
+      <th scope="col">vote</th>
+      <th scope="col">distance_to_center</th>
+    </tr>
+  </thead>
+       <tBody>
+    <?php
        foreach ($hotels as $hotel) {
+            echo "<tr>";
+            foreach ($hotel as $key => $value) {
 
-           echo "<div class='d-flex'>";
+                if ($key== 'parking' && $value == true ){
+                    echo '<td>yes</td>';
+                } else if ($key== 'parking' && $value == false ){
+                    echo '<td>no</td>';
+                }else{
 
-           foreach ($hotel as $key => $value) {
+                    echo "<td>$value </td>";
+                }
 
-               echo "$key";
+            }
 
-           }
+            echo "</tr>";
 
-           echo "</div>";
+        };
 
-       }
-
-       foreach ($hotels as $hotel) {
-
-           echo "<div class='d-flex'>";
-
-           foreach ($hotel as $key => $value) {
-
-               echo "$key  $value ";
-
-           }
-
-           echo "</div>";
-
-       }
-
-   ?>
+    ?>
+   </tBody>
 </table>
     </body>
 </html>
